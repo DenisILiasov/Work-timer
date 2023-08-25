@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+.TimerCountWrapp{
+    display: flex;
+    font-size: 40px;
+}
+
+body{
+    background-color: #050c1e;
+}
+
+h2{
+    font-family: 'Roboto';
+    color:  #c3cecb;
+}
