@@ -1,1 +1,49 @@
+.container{
+    max-width: 600px;
+    margin: 20px auto;
+    border: 2px solid #184142;
+    padding: 10px 20px;
+    font-family: 'Roboto';
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #c3cecb;
+    border-radius: 10px;
+    background-color: #050c1e;
+    transition: all 0.5s;
+}
 
+.container:hover{
+    filter: brightness(120%);
+}
+
+.infoContainer{
+    display: flex;
+    gap: 10px;
+}
+
+.buttonContainer{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.button{
+    border: 2px solid #184142;
+    background-color: #050c1e;;
+    padding: 5px 15px;
+    font-family: 'Roboto';
+    color:  #c3cecb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s;
+    text-decoration: none;
+}
+
+.button:hover{
+    filter: brightness(120%);
+}
+
+.button:active{
+    filter: brightness(80%);
+}

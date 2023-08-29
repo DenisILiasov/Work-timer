@@ -22,12 +22,13 @@
 }
 
 .modaleContent{
-    padding: 20px;
+    padding: 25px;
     width: 300px;
     border-radius: 10px;
     background-color: #262627;
     position: relative;
     color: #fff;
+    z-index: 2;
 }
 
 .modaleClouse{

@@ -1,10 +1,11 @@
-import { FC, useState } from "react"
+import { FC, useState, useEffect } from "react"
 import style from './timer.module.css'
 import TimerCount from "./timerCount/timerCount";
-import {  useAppSelector, useAppDispatch } from "../hooks/redux";
-import Grafik from "./grafik/grafik";
+import {  useAppSelector, useAppDispatch } from "../../hooks/redux";
+import Header from "./header/header";
 import TimerButton from "./timerButton/timerButton";
-import { addTimer, startTimer, resetTimer } from "../store/timer/timerSlice";
+import {initialTimer, startTimer, resetTimer } from "../../store/timer/timerSlice";
+
 
 const Timer: FC = () => {
     const minuts = useAppSelector(state => state.timer.timerList)
@@ -31,23 +32,32 @@ const Timer: FC = () => {
         setInvterv(interv = clearInterval(interv))
         dispatch(resetTimer())
     }
+    useEffect(() => {
+        dispatch(initialTimer())
+    }, [dispatch])
+    /*******************************/
 
-    const addGrafiks = () => {
-        dispatch(addTimer())
+    const [modal, setModal] = useState<boolean>(false)
+
+    const openModal = (): void => {
+        setModal(true)
+    }
+
+    const clouseModal = (): void => {
+        setModal(false)
     }
   
     return(
         <div className={style.timerWrapp}>
-            <Grafik/>
+           <Header clouseModal={clouseModal} openModal={openModal} modal = {modal}/>
             {minuts.length > 0 ? 
                 <div className={style.timerContentWrapp}>
                     <TimerCount second={second} minutWork={minutWork} minutRelax={minutRelax}/>
                 </div>
                 :
-                <div className={style.timerContentWrapp}><button className={style.button}>Add Grafik</button></div>
+                <div className={style.timerContentWrapp}><h3 className={style.zero}>Графиков нет <span className={style.add} onClick={openModal}>добавить?</span></h3></div>
             }   
            <TimerButton startTimer={intervalStart} resetTimer={resetTimers} stopTimer={stopTimer}/>
-            <button className={style.button} onClick = {addGrafiks}>Add grafik</button>
         </div>
     )
 };
