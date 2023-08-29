@@ -13,3 +13,31 @@
     text-align: center;
     color: #c3cecb;
 }
+
+.button{
+    border: 2px solid #184142;
+    background-color: #050c1e;;
+    padding: 5px 15px;
+    font-family: 'Roboto';
+    color:  #c3cecb;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.4s;
+    text-decoration: none;
+    text-align: center;
+}
+
+.button:hover{
+    filter: brightness(120%);
+}
+
+.button:active{
+    filter: brightness(80%);
+}
+
+.linkContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 10px 0 0 0;
+}

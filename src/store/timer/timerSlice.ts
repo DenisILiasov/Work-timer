@@ -51,6 +51,7 @@ const timerSlice = createSlice({
                             state.relax = state.timerActive[0].relax - 1
                         }
                     }
+                    console.log(state.relax, state.work)
                 }
             }else{
                 return;

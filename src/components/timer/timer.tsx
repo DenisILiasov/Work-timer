@@ -7,6 +7,7 @@ import TimerButton from "./timerButton/timerButton";
 import {initialTimer, startTimer, resetTimer } from "../../store/timer/timerSlice";
 
 
+
 const Timer: FC = () => {
     const minuts = useAppSelector(state => state.timer.timerList)
     const second = useAppSelector(state => state.timer.second)
