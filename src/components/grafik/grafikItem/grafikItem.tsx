@@ -1,4 +1,4 @@
-import { FC } from "react"
+import { FC, useState } from "react"
 import style from './grafikItem.module.css'
 import {Link} from 'react-router-dom'
 import { deleteTimer, timerUse } from "../../../store/timer/timerSlice"
@@ -13,6 +13,7 @@ interface IGrafikItem{
 
 const GrafikItem: FC<IGrafikItem> = ({work, relax, active, id}) => {
     const dispath = useAppDispatch()
+    const [widthWindow, setWidthWindow] = useState<number>(window.innerWidth)
 
     const deleted = (): void => {
         dispath(deleteTimer(id))
@@ -28,10 +29,18 @@ const GrafikItem: FC<IGrafikItem> = ({work, relax, active, id}) => {
                     <p>Work: {work}</p>
                     <p>Relax: {relax}</p>
                 </div>
-                <div className={style.buttonContainer}>
+                {widthWindow > 450 ? <div className={style.buttonContainer}>
                     <Link to={'/'} className={style.button} onClick = {use}>Использовать</Link>
                     <Link to={'/grafiks'} className={style.button} onClick={deleted}>Удалить</Link>
                 </div>
+                : 
+                
+                <div className={style.buttonContainer}>
+                    <Link to={'/'} className={style.button} onClick = {use}>✔</Link>
+                    <Link to={'/grafiks'} className={style.button} onClick={deleted}>✖</Link>
+                </div>
+                }
+                
             </div>
         </>
     )

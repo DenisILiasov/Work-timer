@@ -16,7 +16,7 @@ const ModalWindow: FC<IModal> = ({children, openModal, clouse}) => {
         <div onClick={clouse} className={clases.join(' ')}>
             <div onClick={e => e.stopPropagation()} className={style.modaleContent}>
                 {children}
-                <div onClick={clouse} className={style.modaleClouse}>X</div>
+                <div onClick={clouse} className={style.modaleClouse}>✖</div>
             </div>
         </div>
     )

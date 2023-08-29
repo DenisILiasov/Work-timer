@@ -9,9 +9,13 @@ const Grafik: FC = () => {
     return(
         <>
             <h1 className={style.title}>Список графиков</h1>
-            {grafik.map(el => {
-                return <GrafikItem active = {el.active} work={el.work} relax={el.relax} id = {el.id} key={el.id}/> 
-            })} 
+            {grafik.length > 0 ? 
+                    grafik.map(el => {
+                    return <GrafikItem active = {el.active} work={el.work} relax={el.relax} id = {el.id} key={el.id}/> 
+                })
+            :   
+                <h2 className={style.none}>Графиков нет!</h2>
+            } 
         </>
     )
 }
