@@ -37,20 +37,25 @@ const timerSlice = createSlice({
             state.relax = state.timerActive[0]?.relax - 1
         },
         startTimer(state){
-            if(state.second > 0){
-                state.second = state.second - 1
-            }else{
-                state.second = 59
-                if(state.work > -1){
-                    state.work = state.work - 1
+            if(state.timerList.length !== 0){
+                if(state.second > 0){
+                    state.second = state.second - 1
                 }else{
-                    state.relax = state.relax - 1
-                    if(state.relax < 0){
-                        state.work = state.timerActive[0].work - 1
-                        state.relax = state.timerActive[0].relax - 1
+                    state.second = 59
+                    if(state.work > -1){
+                        state.work = state.work - 1
+                    }else{
+                        state.relax = state.relax - 1
+                        if(state.relax < 0){
+                            state.work = state.timerActive[0].work - 1
+                            state.relax = state.timerActive[0].relax - 1
+                        }
                     }
                 }
+            }else{
+                return;
             }
+            
         },
         resetTimer(state){
             state.work = state.timerActive[0].work 
