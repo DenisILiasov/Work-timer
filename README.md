@@ -1,6 +1,6 @@
-#Work-Timer
+# Work-Timer
 
-###deploy https://work-timer-nine.vercel.app/
+### deploy https://work-timer-nine.vercel.app/
 
 __Приложение которое позволяет намного продуктивнее обращаться со своим временем__
 ___
