@@ -35,6 +35,7 @@ const timerSlice = createSlice({
             state.timerActive = state.timerList.filter(el => el.active === true)
             state.work = state.timerActive[0]?.work
             state.relax = state.timerActive[0]?.relax - 1
+            state.second = 0
         },
         startTimer(state){
             if(state.timerList.length !== 0){
@@ -51,7 +52,7 @@ const timerSlice = createSlice({
                             state.relax = state.timerActive[0].relax - 1
                         }
                     }
-                    console.log(state.relax, state.work)
+                    console.log(state.work, state.relax)
                 }
             }else{
                 return;
@@ -82,6 +83,7 @@ const timerSlice = createSlice({
         },
         deleteTimer(state, action: PayloadAction<number>){
             state.timerList = state.timerList.filter(el => el.id !== action.payload)
+            state.second = 0
             let count: boolean[] = []
             state.timerList.forEach(el => {
                 if(el.active === true){
@@ -93,6 +95,7 @@ const timerSlice = createSlice({
             }
         },
         timerUse(state, action: PayloadAction<number>){
+            state.second = 0
             state.timerList.forEach(el => {
                 el.active = false
                 if(el.id === action.payload){
